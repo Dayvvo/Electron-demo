@@ -70,7 +70,7 @@ div.logodiv a{
     font-size: medium;
 }
 
-.navelDiv a:hover{
+.clicknav:hover{
     font-weight: 600;
 }
 
