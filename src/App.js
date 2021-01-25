@@ -1,5 +1,5 @@
 import React, { Component,createContext } from 'react';
-import { BrowserRouter as Router, Switch,Route } from 'react-router-dom';
+import { HashRouter as Router, Switch,Route } from 'react-router-dom';
 import Login from "./login";
 import Dashboard from "./dashboard";
 import './css/model.css'
