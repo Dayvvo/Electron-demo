@@ -2,7 +2,7 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## VALID LOGIN INFO
+## Valid Login Info
    User1- username:User1, password:password1
    
    User2- username:User3, password:password2
