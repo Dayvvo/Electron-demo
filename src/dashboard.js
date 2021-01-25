@@ -1,21 +1,20 @@
 import React, { useState,useContext } from 'react';
 import {Switch,NavLink,Redirect  } from "react-router-dom";
 import { ConstantV } from "./App";
-import './model.css'
-import './animate.css'
+import { togglenavbar } from "./module";
 const Dashboard = ()=>{
     const [formdata, setFormData] = useState({
         username: '',
         email:'',
         error:'',
     })
-    const {auth,isAuthenticated,setAuth} = useContext(ConstantV)
+    const {auth,user,setAuth} = useContext(ConstantV)
 
     const {username,password,email,error} = formdata;
 
 
 
-    if(!isAuthenticated){
+    if(!user){
         return <Redirect to='/'/>
     }
 
@@ -24,26 +23,21 @@ const Dashboard = ()=>{
         <div className='reactDashboard'>
 
             <div className="responsiveBar">
-                <a href=""> <span></span> </a>
-                <a href=""> <span></span> </a>
-                <a href=""> <span>SECTIONS</span> </a>        
-
+                <NavLink to=""> <span>Welcome {user}</span> </NavLink>
+                <NavLink to="" className='clicknav' onClick={e=>{e.preventDefault();setAuth(null) } }> <span>LOGOUT</span> </NavLink>
             </div>
 
             <nav>
                 <div className="logodiv">
-                    <a href="" id="hamburger">Ca</a>
-                    <a className="logoElement">
-                    ELECTRON DEMO
-                    </a>
-                    
+                    <a href="" className='fa fa-bars' onClick={e=>togglenavbar(e)} id="hamburger"></a>
+                    <a className="logoElement">ELECTRON DEMO </a>                    
                 </div>
 
                 <div className="navelDiv">
                     {/* <a href="">HOME</a>
                     <a href="">ABOUT</a> */}
-                    <NavLink to="" onClick={e=>e.preventDefault()}>Welcome {auth.username} </NavLink>
-                    <NavLink className='clicknav' to="" onClick={e=>{e.preventDefault();setAuth(false) } }>Logout </NavLink>
+                    <NavLink to="" onClick={e=>e.preventDefault()}>Welcome {user} </NavLink>
+                    <NavLink className='clicknav' to="" onClick={e=>{e.preventDefault();setAuth(null) } }>Logout </NavLink>
 
                 </div>
             </nav>
@@ -51,10 +45,10 @@ const Dashboard = ()=>{
 
             <section>
                 <div>
-                    <h3> <div className="sectionHeader">MY GALLERY</div> </h3>
+                    <h3> <div className="sectionHeader">BACKGROUND IMAGES HD</div> </h3>
                     <div className='formGrid animated'>
                         <div className="grids">
-                            <img src="./mauricio.jpg" alt=""/>
+                            <img src="./img/mauricio.jpg" alt=""/>
                             <div>
                                 <div><b>IMG1</b></div>
                                 <div className="like-download">
@@ -66,7 +60,7 @@ const Dashboard = ()=>{
                         </div>
 
                         <div className="grids">
-                            <img src="./mauricio.jpg" alt=""/>
+                            <img src="./img/color-gradient.jpg" alt=""/>
                             <div>
                                 <div><b>IMG2</b></div>
                                 <div className="like-download">
@@ -78,7 +72,18 @@ const Dashboard = ()=>{
                         </div>
 
                         <div className="grids">
-                            <img src="./mauricio.jpg" alt=""/>
+                            <img src="./img/photo-of-planner-and-writing-materials-760710.jpg" alt=""/>
+                            <div>
+                                <div><b>IMG3</b></div>
+                                <div className="like-download">
+                                    <NavLink to='' className='fa fa-thumbs-up'></NavLink>
+                                    <NavLink to='' className='fa fa-download'></NavLink>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div className="grids">
+                            <img src="./img/mike-palmowski-wIA52QbD2ew-unsplash.jpg" alt=""/>
                             <div>
                                 <div><b>IMG3</b></div>
                                 <div className="like-download">
