@@ -5,7 +5,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Valid Login Info
    username:User1, password:password1
    
-   username:User3, password:password2
+   username:User2, password:password2
    
    username:User3, password:password3
 
